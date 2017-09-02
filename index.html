@@ -53,6 +53,7 @@
     .video-container video.fillWidth {
       width: 100%;
     }
+    
     .homepage-title{
       position: absolute;
       font-size: 70px;
@@ -65,14 +66,9 @@
       animation: identifier 5s ease-in-out infinite alternate;
     }
 
-    @keyframes identifier 
-    {
-      from {
-        color: white;
-      }
-      to {
-        color: #dcdcdc;
-      }
+    @keyframes identifier {
+      from { color: white; }
+      to { color: #dcdcdc; }
     }
   </style>
   <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
@@ -85,8 +81,8 @@
           <img src="./Coding.jpg" alt="">
         </div>
         <video autoplay loop class="fillWidth">
-          <source src="./Coding.mp4" type="video/mp4" /> 浏览器不支持 HTML5 浏览器，辣稽
-          <source src="./Coding.webm" type="video/webm" /> 浏览器不支持 HTML5 浏览器，辣稽
+          <source src="./Coding.mp4" type="video/mp4" /> 浏览器不支持 HTML5 Video，辣稽
+          <source src="./Coding.webm" type="video/webm" /> 浏览器不支持 HTML5 Video，辣稽
         </video>
     </div>
   </div>
@@ -103,10 +99,10 @@
       initBannerVideoSize('.video-container video');
 
       $(window).on('resize', function() {
-          scaleVideoContainer();
-          scaleBannerVideoSize('.video-container .poster img');
-          scaleBannerVideoSize('.video-container .filter');
-          scaleBannerVideoSize('.video-container video');
+        scaleVideoContainer();
+        scaleBannerVideoSize('.video-container .poster img');
+        scaleBannerVideoSize('.video-container .filter');
+        scaleBannerVideoSize('.video-container video');
       });
     });
 
@@ -118,8 +114,8 @@
 
     function initBannerVideoSize(element){
       $(element).each(function(){
-          $(this).data('height', $(this).height());
-          $(this).data('width', $(this).width());
+        $(this).data('height', $(this).height());
+        $(this).data('width', $(this).width());
       });
 
       scaleBannerVideoSize(element);
@@ -132,19 +128,19 @@
       videoHeight;
 
       $(element).each(function(){
-          var videoAspectRatio = $(this).data('height')/$(this).data('width');
+        var videoAspectRatio = $(this).data('height')/$(this).data('width');
 
-          $(this).width(windowWidth);
+        $(this).width(windowWidth);
 
-          if(windowWidth < 1000){
-              videoHeight = windowHeight;
-              videoWidth = videoHeight / videoAspectRatio;
-              $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
+        if(windowWidth < 1000){
+          videoHeight = windowHeight;
+          videoWidth = videoHeight / videoAspectRatio;
+          $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
 
-              $(this).width(videoWidth).height(videoHeight);
-          }
+          $(this).width(videoWidth).height(videoHeight);
+        }
 
-          $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
+        $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
       });
     }
   </script>
